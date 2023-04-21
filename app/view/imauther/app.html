@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-hans-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/static/favicon.png">
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/static/imauther.css">
+  <script type="module" src="/static/imauther.app.js"></script>
+
+  <title>主页 -- Gagago 作家工作台</title>
+</head>
+
+<body class="bg-light">
+  <nav class="navbar navbar-light bg-white shadow-sm mb-3">
+    <div>
+      <a class="navbar-brand p-0" title="Gagago" href="/imauther/">
+        <b class="text-primary">Gagago</b>
+        工作台
+      </a>
+    </div>
+    <div>
+      <a class="btn btn-light" href="/" target="_blank">主站</a>
+      <button class="btn btn-light">
+        <span id="nickname"></span>
+        <svg t="1681625552167" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          p-id="2611" width="12" height="12">
+          <path d="M65.582671 288.791335l446.417329 446.41733 446.417329-446.41733z" p-id="2612" fill="#999"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-2">
+        <ul class="nav nav-pills flex-lg-column mb-2" id="menu">
+          <li class="nav-item">
+            <a class="nav-link" href="#/index" id="index">主页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/works" id="works">我的作品</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/money" id="money">收益</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/write" id="write">写作</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-8">
+        <div id="mainView">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

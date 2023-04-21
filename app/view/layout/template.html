@@ -1,0 +1,11 @@
+{% include pjax ? '/layout/nothing.html' : '/layout/head.html' %}
+
+{% include pjax ? '/layout/nothing.html' : '/layout/navigator.html' with {'logged': logged} %}
+
+{% include pjax ? '/layout/nothing.html' : '/layout/container.html' %}
+
+<div id="title" style="display: none;">{{title}}</div>
+
+{% include view %}
+
+{% include pjax ? '/layout/nothing.html' : '/layout/tail.html' %}

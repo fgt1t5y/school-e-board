@@ -1,0 +1,49 @@
+<div class="bg-white p-3 shadow-sm gg-form">
+  <h4 class="text-center">设置你的新账号</h4>
+  <form id="start-register">
+    <div class="form-group">
+      <label for="email-input">电子邮箱地址</label>
+      <input type="email" name="email" class="form-control d-none" id="email-input" value="{{email}}" disabled required>
+      <div class="h5">{{email}}</div>
+    </div>
+    <div class="form-group">
+      <label class="required" for="password-input">昵称</label>
+      <input type="text" class="form-control" id="nickname-input" autocomplete="off" required autofocus>
+    </div>
+    <div class="form-group">
+      <label class="required" for="password-input">密码</label>
+      <input type="password" class="form-control" id="password-input" autocomplete="new-password" required>
+    </div>
+    <div class="form-group">
+      <label class="required" for="password-input">确认密码</label>
+      <input type="password" class="form-control" id="password-input-again" autocomplete="new-password" required>
+    </div>
+    <div id="err" class="text-danger"></div>
+    <a href="/auth" class="btn btn-outline-primary">返回</a>
+    <button type="submit" class="btn btn-primary">提交</button>
+  </form>
+</div>
+
+<script>
+  $('#start-register').on('submit', function (event) {
+    event.preventDefault();
+    if ($('#password-input').val() === $('#password-input-again').val()) {
+      $.getJSON('/api/register',
+        {
+          email: $('#email-input').val(),
+          password: $('#password-input').val(),
+          nickname: $('#nickname-input').val()
+        }, function (data) {
+          console.log(data);
+          if (data.code > 0) {
+            $('#err').text(data.message);
+          } else {
+            location.href = '/auth?reg=1';
+          }
+        })
+    } else {
+      $('#err').text('两次输入的密码不一致。')
+    }
+  })
+
+</script>

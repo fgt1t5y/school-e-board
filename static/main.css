@@ -1,0 +1,73 @@
+body {
+  background-color: #f6f6f6;
+}
+
+.required::after {
+  content: '*';
+  color: red;
+}
+
+.gg-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.btn-poppover {
+  padding: .3rem .6rem;
+  color: #111;
+  font-size: 1rem;
+  border-radius: .25rem;
+}
+
+.btn-poppover:hover {
+  color: #111;
+  text-decoration: none;
+  background-color: #e6e6e6;
+}
+
+#menu {
+  border-radius: 50%;
+  padding: 0px;
+  background: none;
+  border: none;
+}
+
+#menu:hover {
+  outline: 2px solid #007bff;
+}
+
+#avatar {
+  width: 32px;
+  height: 32px;
+  margin: 3px;
+  border-radius: 50%;
+}
+
+#detail-card {
+  display: flex;
+}
+
+#header-img {
+  height: 240px;
+}
+
+.avatar-img {
+  max-width: 9rem;
+  max-height: 9rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  top: -50px;
+}
+
+
+@media (max-width: 576px) {
+  #mainView {
+    margin-top: 0;
+  }
+
+  #detail-card {
+    flex-direction: column;
+  }
+}

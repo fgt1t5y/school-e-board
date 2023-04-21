@@ -1,0 +1,22 @@
+<nav class="navbar navbar-light bg-white shadow-sm">
+  <div class="container-lg px-0">
+    <a class="navbar-brand p-0" title="Gagago" href="/">
+      <svg t="1678001314542" class="icon" viewbox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="2852" width="32" height="32">
+        <path
+          d="M64 341.2v548.3h137.9l-31.4-548.3zM803.3 187.7v181.9L960 345.2V162.7zM803.3 418H960v458.9H803.3zM506.5 676.3l121.3 18.8 156.8-463.5-115.9-43.9zM449.3 848.8l112.8 40.7 45-133-115.3-35.6zM188.8 266.2H418V134.5l-234.9 18.8zM196.4 414.2H418V303.7H190.7zM220.7 889.5H418V437.7H197.6z"
+          fill="#007bff" p-id="2853"></path>
+      </svg>
+    </a>
+    <div class="spinner-border" id="loading" role="status"></div>
+    <div class="d-flex">
+      {% if logged %}
+      <button id="menu">
+        <img id="avatar" src="" alt="">
+      </button>
+      {% else %}
+      <a href="/auth" class="btn btn-primary">注册或登录</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>

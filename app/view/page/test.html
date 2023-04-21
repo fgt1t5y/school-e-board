@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-hans-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <form action="/api/upload" method="post">
+      <input type="file" name="avatar" id="ff">
+      <input type="submit" value="Go!">
+    </form>
+  </div>
+
+  // <script>
+  $('form').on('submit', function (ev) {
+    ev.preventDefault();
+    const form = new FormData($('form')[0]);
+    form.append('file', $('#ff').get(0).files[0]);
+    $.ajax({
+      url: '/api/upload',
+      processData: false,
+      contentType: false,
+      type: 'post',
+      data: form,
+      success: function (data) {
+        console.log(data);
+      }
+    }
+    )
+  })
+  // </script>
+</body>
+
+</html>

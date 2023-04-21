@@ -1,0 +1,24 @@
+<div class="bg-white p-3 gg-form shadow-sm">
+  {% if reg == 1 %}
+  <div class="alert alert-success" role="alert">
+    注册成功！你现在可以登录你的账号了！
+  </div>  
+  {% endif %}
+  <h4 class="text-center">登录或注册 Gagago</h4>
+  <div class="text-center text-muted">在下方输入你的邮箱地址，然后点击“下一步”开始后续步骤。</div>
+  <form id="start-auth" data-pjax="" method="get" action="/auth/confirm">
+    <div class="form-group">
+      <label class="required" for="email-input">电子邮箱地址</label>
+      <input type="email" name="email" class="form-control" autocomplete="username" autofocus required>
+    </div>
+    <div class="text-danger"></div>
+    <button type="submit" id="btn-auth" class="btn btn-primary">下一步</button>
+  </form>
+</div>
+
+<script>
+  $('#start-auth').on('submit', function (event) {
+    event.preventDefault();
+    $.pjax.submit(event, '#mainView');
+  })
+</script>
