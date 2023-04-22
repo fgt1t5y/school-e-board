@@ -13,10 +13,10 @@ function is_logged(Request $request)
 
 function auto(Request $request, string $view, array $argv = [])
 {
-  if ($request->header('X-PJAX')) {
-    return view('/layout/template', array_merge(['view' => $view, 'pjax' => true, 'logged' => is_logged($request)], $argv));
+  if ($request->isPjax()) {
+    return view('/layout/templatev2', array_merge(['view' => $view, 'pjax' => true], $argv));
   } else {
-    return view('/layout/template', array_merge(['view' => $view, 'pjax' => false, 'logged' => is_logged($request)], $argv));
+    return view('/layout/templatev2', array_merge(['view' => $view, 'pjax' => false], $argv));
   }
 }
 

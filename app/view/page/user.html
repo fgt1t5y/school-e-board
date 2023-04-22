@@ -10,7 +10,11 @@
       <h4>{{user.nickname}}</h4>
     </div>
     <div>
+      {% if is_me %}
       <button class="btn btn-primary">编辑资料</button>
+      {% else %}
+      <button class="btn btn-primary">关注</button>
+      {% endif %}
     </div>
   </div>
 </div>

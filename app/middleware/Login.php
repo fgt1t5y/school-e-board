@@ -2,6 +2,7 @@
 
 namespace app\middleware;
 
+use support\View;
 use Webman\MiddlewareInterface;
 use Webman\http\Request;
 use Webman\http\Response;
@@ -16,6 +17,10 @@ class Login implements MiddlewareInterface
       if ($request->controller == 'app\controller\AuthController') {
         return redirect('/');
       }
+      View::assign([
+        'logged' => true,
+        'nickname' => $request->session()->get('user')
+      ]);
     } else {
       if ($request->controller == 'app\controller\ImautherController') {
         return redirect('/auth');

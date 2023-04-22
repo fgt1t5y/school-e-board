@@ -12,25 +12,43 @@ body {
   margin: 0 auto;
 }
 
-.btn-poppover {
-  padding: .3rem .6rem;
-  color: #111;
-  font-size: 1rem;
-  border-radius: .25rem;
-}
-
-.btn-poppover:hover {
-  color: #111;
-  text-decoration: none;
-  background-color: #e6e6e6;
-}
-
 #menu {
   border-radius: 50%;
   padding: 0px;
   background: none;
   border: none;
+  position: relative;
 }
+
+#menu-panel {
+  position: absolute;
+  min-width: 90px;
+  left: -40px;
+  top: 40px;
+  padding: .3rem;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  border-radius: 2px;
+  z-index: 10000;
+}
+
+.menu-item {
+  display: block;
+  text-decoration: none;
+  color: #343434;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.menu-item:hover {
+  background-color: #e6e6e6;
+  text-decoration: none;
+}
+
+#menu:focus-visible {
+  outline: 3px solid #0069d9;
+}
+
 
 #menu:hover {
   outline: 2px solid #007bff;

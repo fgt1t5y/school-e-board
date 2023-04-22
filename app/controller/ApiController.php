@@ -5,6 +5,7 @@ namespace app\controller;
 use support\Request;
 use app\model\User;
 use support\Db;
+use Webman\Captcha\CaptchaBuilder;
 
 use function app\function\verifyRegistionForm;
 use function app\function\is_email;
@@ -71,8 +72,8 @@ class ApiController
   {
     $session = $request->session();
     $session->flush();
-    // return view('/page/logout', ['back' => $request->get('back')]);
-    return json(['code' => 0, 'message' => '成功。']);
+    return view('/page/logout', ['back' => $request->get('back')]);
+    // return json(['code' => 0, 'message' => '成功。']);
   }
 
   public function test()
@@ -84,10 +85,24 @@ class ApiController
   {
     $file = $request->file('avatar');
     if ($file && $file->isValid()) {
-    $filename = public_path() . '/upload/avatar/' . random_id() . '.' . $file->getUploadExtension();
+      $filename = public_path() . '/upload/avatar/' . random_id() . '.' . $file->getUploadExtension();
       $file->move($filename);
       return json(['code' => 0, 'message' => '上传成功。']);
     }
     return json(['code' => 1, 'message' => '失败：文件不存在。']);
+  }
+
+  public function captcha(Request $request)
+  {
+    // 初始化验证码类
+    $builder = new CaptchaBuilder;
+    // 生成验证码
+    $builder->build();
+    // 将验证码的值存储到session中
+    $request->session()->set('captcha', strtolower($builder->getPhrase()));
+    // 获得验证码图片二进制数据
+    $img_content = $builder->get();
+    // 输出验证码二进制数据
+    return response($img_content, 200, ['Content-Type' => 'image/jpeg']);
   }
 }

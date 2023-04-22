@@ -12,27 +12,10 @@ var title;
 //   });
 // }
 
-function menu_init() {
-  $('#menu').popover({
-    trigger: 'focus',
-    content: /* html */`
-      <a class="d-block btn-poppover" tabindex="1" href="@${localStorage.getItem('nickname')}">我的空间</a>
-      <a class="d-block btn-poppover" tabindex="2" href="/imauther/" target="_blank">工作台</a>
-      <a class="d-block btn-poppover" tabindex="3" href="#">设置</a>
-    `,
-    html: true,
-    placement: 'bottom'
-  })
-}
 
 $(function () {
   // popper_init();
 
-  if (document.getElementById('menu') != null) {
-    menu_init();
-  }
-
-  // enable Pjax
   $(document).pjax('a:not([target])', '#mainView');
   $('#loading').hide();
 

@@ -1,0 +1,88 @@
+{% if pjax == false %}
+<!DOCTYPE html>
+<html lang="zh-hans-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/static/favicon.png">
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="/static/popper.min.js"></script>
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/static/jquery.pjax.min.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/static/main.css">
+  <script src="/static/StartUp.js"></script>
+
+  <title>Gagago -- {{title}}</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-light bg-white shadow-sm">
+    <div class="container-lg px-0">
+      <a class="navbar-brand p-0" title="Gagago" href="/">
+        <svg t="1678001314542" class="icon" viewbox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          p-id="2852" width="32" height="32">
+          <path
+            d="M64 341.2v548.3h137.9l-31.4-548.3zM803.3 187.7v181.9L960 345.2V162.7zM803.3 418H960v458.9H803.3zM506.5 676.3l121.3 18.8 156.8-463.5-115.9-43.9zM449.3 848.8l112.8 40.7 45-133-115.3-35.6zM188.8 266.2H418V134.5l-234.9 18.8zM196.4 414.2H418V303.7H190.7zM220.7 889.5H418V437.7H197.6z"
+            fill="#007bff" p-id="2853"></path>
+        </svg>
+      </a>
+      <div class="spinner-border" id="loading" role="status"></div>
+      <div>
+        {% if logged %}
+        <div class="position-relative">
+          <button id="menu">
+            <img id="avatar" src="" alt="">
+          </button>
+          <div class="d-none" id="menu-panel">
+            <a href="/@{{nickname}}" class="menu-item">我的空间</a>
+            <a href="/imauther/" target="_blank" class="menu-item">工作台</a>
+            <a href="#" class="menu-item">设置</a>
+          </div>
+        </div>
+        <script>
+          const menu = document.getElementById('avatar');
+          const toggle = document.getElementById('menu');
+          const panel = document.getElementById('menu-panel');
+
+          document.addEventListener('click', function (ev) {
+            if (ev.target !== menu) {
+              panel.classList.add('d-none');
+            }
+          })
+
+          menu.addEventListener('click', function () {
+            panel.classList.remove('d-none');
+          })
+
+          toggle.addEventListener('focusin', function () {
+            panel.classList.remove('d-none');
+            panel.focus();
+          })
+        </script>
+
+        {% else %}
+        <a href="/auth" class="btn btn-primary">注册或登录</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-lg px-0" id="mainView">
+
+    {% endif %}
+
+    <div id="title" style="display: none;">{{title}}</div>
+
+    {% include view %}
+
+    {% if pjax == false %}
+  </main>
+
+</body>
+
+</html>
+{% endif %}
