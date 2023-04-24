@@ -2,6 +2,7 @@ body {
   background-color: #f6f6f6;
 }
 
+/* 认证表单 */
 .required::after {
   content: '*';
   color: red;
@@ -12,6 +13,7 @@ body {
   margin: 0 auto;
 }
 
+/* 用户菜单 */
 #menu {
   border-radius: 50%;
   padding: 0px;
@@ -22,8 +24,8 @@ body {
 
 #menu-panel {
   position: absolute;
-  min-width: 90px;
-  left: -40px;
+  width: 160px;
+  left: -120px;
   top: 40px;
   padding: .3rem;
   border: 1px solid #e6e6e6;
@@ -45,6 +47,11 @@ body {
   text-decoration: none;
 }
 
+.menu-nickname {
+  padding: 5px;
+  font-weight: bolder;
+}
+
 #menu:focus-visible {
   outline: 3px solid #0069d9;
 }
@@ -54,6 +61,7 @@ body {
   outline: 2px solid #007bff;
 }
 
+/* 用户头像 */
 #avatar {
   width: 32px;
   height: 32px;
@@ -61,6 +69,7 @@ body {
   border-radius: 50%;
 }
 
+/* 用户空间页面 - 详细信息容器 */
 #detail-card {
   display: flex;
 }
@@ -79,7 +88,17 @@ body {
   top: -50px;
 }
 
+/* 用户设置页面 */
+.old-avatar-img {
+  max-width: 9rem;
+  max-height: 9rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
+
+/* 响应式 */
 @media (max-width: 576px) {
   #mainView {
     margin-top: 0;

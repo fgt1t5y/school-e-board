@@ -10,31 +10,14 @@
 </head>
 
 <body>
+  
   <div>
-    <form action="/api/upload" method="post">
-      <input type="file" name="avatar" id="ff">
+    <form action="/api/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="avatar" id="ff" accept="image/png, image/jpeg">
       <input type="submit" value="Go!">
     </form>
   </div>
 
-  // <script>
-  $('form').on('submit', function (ev) {
-    ev.preventDefault();
-    const form = new FormData($('form')[0]);
-    form.append('file', $('#ff').get(0).files[0]);
-    $.ajax({
-      url: '/api/upload',
-      processData: false,
-      contentType: false,
-      type: 'post',
-      data: form,
-      success: function (data) {
-        console.log(data);
-      }
-    }
-    )
-  })
-  // </script>
 </body>
 
 </html>

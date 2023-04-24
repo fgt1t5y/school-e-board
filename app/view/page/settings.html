@@ -1,0 +1,28 @@
+<div class="bg-white p-3 shadow-sm">
+  <h1 class="mb-4">设置</h1>
+  <h3>账号资料</h3>
+  <div class="text-muted">设置昵称、头像、自我介绍等</div>
+
+  <hr>
+
+  <div>
+    <h5 class="text-primary">头像</h5>
+    <div class="d-flex justify-content-between align-items-center">
+      <img class="old-avatar-img" src="{{avatar}}" alt="gagago avatar">
+      <input type="file" name="new_avatar" id="avatar_input" accept="image/png, image/jpeg">
+      <button class="btn btn-primary">上传新头像</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+    <h5 class="text-primary">昵称</h5>
+    <div class="d-flex justify-content-between align-items-center">
+      <div>{{nickname}}</div>
+      <button class="btn btn-primary">修改</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/settings.page.js"></script>

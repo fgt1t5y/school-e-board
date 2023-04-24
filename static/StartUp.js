@@ -18,24 +18,10 @@ $(function () {
 
   $(document).pjax('a:not([target])', '#mainView');
   $('#loading').hide();
-
-
-  const avatar = document.getElementById('avatar');
-  avatar.src = localStorage.getItem('avatar_url');
 });
 
 function getBookDetail() {
   $('#content_').load('/index/fdata');
-}
-
-function logout() {
-  $.getJSON('/api/logout', {}, function (data) {
-    if (data.code === 0) {
-      localStorage.clear();
-      location.reload();
-      console.log(data);
-    }
-  })
 }
 
 $(document).on('pjax:start', function (event) {
@@ -45,7 +31,7 @@ $(document).on('pjax:start', function (event) {
 $(document).on('pjax:end', function (event) {
   title = document.getElementById('title');
   if (title.innerText != '') {
-    document.title = 'Gagago -- ' + title.innerText;
+    document.title = title.innerText;
   }
   else {
     document.title = 'Gagago';

@@ -13,18 +13,22 @@ class Login implements MiddlewareInterface
 {
   public function process(Request $request, callable $handel): Response
   {
-    if (is_logged($request)) {
+    $session = $request->session();
+    if ($session->has('user')) {
       if ($request->controller == 'app\controller\AuthController') {
         return redirect('/');
       }
       View::assign([
         'logged' => true,
-        'nickname' => $request->session()->get('user')
+        'nickname' => $session->get('user'),
+        'avatar' => $session->get('avatar_url')
       ]);
+      $request->logged = true;
     } else {
       if ($request->controller == 'app\controller\ImautherController') {
         return redirect('/auth');
       }
+      $request->logged = false;
     }
 
     return $handel($request);

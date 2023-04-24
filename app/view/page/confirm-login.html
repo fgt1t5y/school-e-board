@@ -17,22 +17,4 @@
   </form>
 </div>
 
-<script>
-  $('#start-login').on('submit', function (event) {
-    event.preventDefault();
-    $.getJSON('/api/login',
-      {
-        email: $('#email-input').val(),
-        password: $('#password-input').val(),
-      }, function (data) {
-        console.log(data);
-        if (data.code > 0) {
-          $('#err').text(data.message);
-        } else {
-          localStorage.setItem('nickname', data.nickname);
-          localStorage.setItem('avatar_url', data.avatar);
-          location.href = '/';
-        }
-      })
-  })
-</script>
+<script src="/static/auth.page.js"></script>

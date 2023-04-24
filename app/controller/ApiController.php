@@ -37,6 +37,7 @@ class ApiController
 
     $session = $request->session();
     $session->set('user', $user->nickname);
+    $session->set('avatar_url', $user->avatar);
 
     return json(['code' => 0, 'message' => '成功。', 'nickname' => $user->nickname, 'avatar' => $user->avatar]);
   }
@@ -72,7 +73,7 @@ class ApiController
   {
     $session = $request->session();
     $session->flush();
-    return view('/page/logout', ['back' => $request->get('back')]);
+    return view('/page/logout');
     // return json(['code' => 0, 'message' => '成功。']);
   }
 
