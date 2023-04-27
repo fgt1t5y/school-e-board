@@ -9,8 +9,9 @@
     <h5 class="text-primary">头像</h5>
     <div class="d-flex justify-content-between align-items-center">
       <img class="old-avatar-img" src="{{avatar}}" alt="gagago avatar">
-      <input type="file" name="new_avatar" id="avatar_input" accept="image/png, image/jpeg">
-      <button class="btn btn-primary">上传新头像</button>
+      <input class="d-none" type="file" name="avt" id="avatar-input" accept="image/png,image/jpeg">
+      <label for="avatar-input" class="btn btn-primary">修改</label>
+      <img class="d-none" id="preview" src="" alt="">
     </div>
   </div>
 
@@ -21,6 +22,20 @@
     <div class="d-flex justify-content-between align-items-center">
       <div>{{nickname}}</div>
       <button class="btn btn-primary">修改</button>
+    </div>
+  </div>
+</div>
+
+<div id="avatar-cropper" class="gg-modal d-none">
+  <div class="bg-white shadow-sm p-3">
+    <div class="d-flex flex-column">
+      <h4>选择区域</h4>
+      <canvas id="grap" width="256" height="256"></canvas>
+      <input type="range" name="" id="scale-input" min="1.0" max="2.0" step="0.01">
+      <div class="d-flex" style="gap: 5px;">
+        <button id="avatar-submit" class="btn btn-primary">上传</button>
+        <button id="gg-modal-close" class="btn btn-outline-primary">取消</button>  
+      </div>
     </div>
   </div>
 </div>

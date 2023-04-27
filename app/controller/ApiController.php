@@ -86,24 +86,28 @@ class ApiController
   {
     $file = $request->file('avatar');
     if ($file && $file->isValid()) {
-      $filename = public_path() . '/upload/avatar/' . random_id() . '.' . $file->getUploadExtension();
-      $file->move($filename);
+      $filename = '/upload/' . random_id() . '.' . $file->getUploadExtension();
+      $filepath = public_path() . $filename;
+      $file->move($filepath);
       return json(['code' => 0, 'message' => '上传成功。']);
     }
     return json(['code' => 1, 'message' => '失败：文件不存在。']);
   }
 
-  public function captcha(Request $request)
+  public function uploadavatar(Request $request)
   {
-    // 初始化验证码类
-    $builder = new CaptchaBuilder;
-    // 生成验证码
-    $builder->build();
-    // 将验证码的值存储到session中
-    $request->session()->set('captcha', strtolower($builder->getPhrase()));
-    // 获得验证码图片二进制数据
-    $img_content = $builder->get();
-    // 输出验证码二进制数据
-    return response($img_content, 200, ['Content-Type' => 'image/jpeg']);
+    if ($request->logged) {
+      $file = $request->file('avatar');
+      if ($file && $file->isValid()) {
+        $filename = '/upload/avatar/' . random_id() . '.' . $file->getUploadExtension();
+        $filepath = public_path() . $filename;
+        $file->move($filepath);
+
+        $user = User::where('nickname', $request->nickname)->update(['avatar' => $filename]);
+        $request->session()->set('avatar_url', $filename);
+        return json(['code' => 0, 'message' => '头像已更新。']);
+      }
+    }
+    return json(['code' => 1, 'message' => '失败。']);
   }
 }

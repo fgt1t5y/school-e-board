@@ -24,6 +24,7 @@ class Login implements MiddlewareInterface
         'avatar' => $session->get('avatar_url')
       ]);
       $request->logged = true;
+      $request->nickname = $session->get('user');
     } else {
       if ($request->controller == 'app\controller\ImautherController') {
         return redirect('/auth');
