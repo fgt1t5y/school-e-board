@@ -107,6 +107,7 @@ class ApiController
         $request->session()->set('avatar_url', $filename);
         return json(['code' => 0, 'message' => '头像已更新。']);
       }
+      return json(['code' => 1, 'message' => '失败。']);
     }
     return json(['code' => 1, 'message' => '失败。']);
   }

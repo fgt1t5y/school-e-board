@@ -1,21 +1,6 @@
 var title;
 
-// function popper_init() {
-//   $('[data-toggle="popover"]').popover({
-//     trigger: 'hover',
-//     placement: 'bottom',
-//     html: true,
-//     template: '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>',
-//     content: '<div id="content_"><div class="spinner-border text-secondary" role="status"></div></div>'
-//   }).on('shown.bs.popover', function () {
-//     getBookDetail();
-//   });
-// }
-
-
 $(function () {
-  // popper_init();
-
   $(document).pjax('a:not([target])', '#mainView');
   $('#loading').hide();
 });
@@ -37,5 +22,4 @@ $(document).on('pjax:end', function (event) {
     document.title = 'Gagago';
   }
   $('#loading').hide();
-  // popper_init();
 })

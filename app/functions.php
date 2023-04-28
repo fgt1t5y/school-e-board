@@ -47,7 +47,7 @@ function is_email(mixed $email)
 
 function random_id()
 {
-  $unit = ['a', 'b', 'c', 'd', 'e', 'f', 'g', '7', '8', '9'];
+  $unit = ['a', 'b', 'c', 'd', 'e', 'f', 'g', '1', '2', '3'];
   $result = '';
 
   for ($i = 0; $i < 16; $i++) {
